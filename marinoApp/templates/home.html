@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'marinoApp/styling.css' %}">
+        <link href="{% static 'marinoApp/bootstrap-4/css/bootstrap.min.css' %}" rel="stylesheet">
+        <title> Welcome to Marino!</title>
+    </head>
+
+
+    <body>
+
+        <div class = jumbotron>
+            <h1 class = "text-lg-center" style="color: black;font-size: 3em">
+                Marino Recreation Center Navigator
+            </h1>
+            <h5 class = "text-lg-center">
+                A tool for figuring out where equipment in Marino is.
+
+            </h5>
+        </div>
+
+        <div style="text-align:center;margin:auto;">
+            <a href="{% url 'navigation' %}" class="btn-lg btn-info" style="background-color: forestgreen">Explore Marino!</a>
+        </div>
+
+        <div style="text-align: center;margin-top: 3%">
+            <img src="{% static "marinoApp/floorplan.png" %}" alt="My image">
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>
+
+
+
+

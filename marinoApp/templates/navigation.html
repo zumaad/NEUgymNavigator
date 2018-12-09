@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'marinoApp/styling.css' %}">
+        <link href="{% static 'marinoApp/bootstrap-4/css/bootstrap.min.css' %}" rel="stylesheet">
+        <title> Equipment</title>
+    </head>
+
+
+    <body>
+
+        <style>
+            .col{
+                background-color: white;
+                height: 150px;
+                border-width: 1px;
+                border-color: black;
+
+            }
+
+            .buttontext{
+                font-size: 2em;
+                font-weight: bold;
+                color: black;
+
+            }
+
+            .sectionheader{
+                font-size: 2em;
+                font-weight: bold;
+
+            }
+        </style>
+
+
+        <div class = "jumbotron">
+            <div class = "text-center">
+                <form name="equipmentName" method="post" action="/all/">
+                    <h1> Search For Equipment</h1>
+                    <input type="text" class="form-control" name = "equipmentName" placeholder="ex:power rack, bench press, etc" list="autocomplete">
+                    <br>
+                    <input type = "submit">
+                    <input type="reset">
+                    {% csrf_token %}
+                </form>
+
+
+            </div>
+
+        </div>
+
+        <datalist id="autocomplete">
+            {% for entry in all_equipment %}
+            <option value="{{entry.name}}"></option>
+            {% endfor %}
+        </datalist>
+
+        <p  class = "sectionheader" style="text-align: center"> Body Part Navigation</p>
+
+
+
+
+        <form method="post" action="/retrieve/" id="buttonForm"> {% csrf_token %}</form>
+
+
+
+        <div style = "margin-top: 50px" class = "container">
+            <p class = "sectionheader" style="margin-bottom: 70px"> Upper Body </p>
+
+            <div class="row">
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="chest">
+                    <p class = "buttontext">
+                        Chest
+                    </p>
+                </button>
+
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="back">
+                    <p class = "buttontext">
+                        Back
+                    </p>
+                </button>
+
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="biceps">
+                    <p class = "buttontext">
+                        Bicep
+                    </p>
+
+                </button>
+
+                <div class = "offset-1"></div>
+            </div>
+
+            <div class = "row" style="margin-top:3%">
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="shoulders">
+                    <p class = "buttontext">
+                       Shoulder
+                    </p>
+                </button>
+
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="abs/obliques">
+                    <p class = "buttontext">
+                        Abs
+                    </p>
+                </button>
+
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="triceps">
+                    <p class = "buttontext">
+                        Tricep
+                    </p>
+                </button>
+
+                <div class = "offset-1"></div>
+            </div>
+
+
+            <p class = "sectionheader" style="margin-top: 5%;margin-bottom: 70px"> Lower Body </p>
+
+
+            <div class = "row" style = "margin-top: 3%">
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="quads">
+                    <p class = "buttontext">
+                        Quads
+                    </p>
+                </button>
+
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="hamstrings">
+                    <p class = "buttontext">
+                        Hamstring
+                    </p>
+                </button>
+
+                <div class = "offset-1"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="glutes">
+                    <p class = "buttontext">
+                        Glutes
+                    </p>
+                </button>
+
+                <div class = "offset-1"></div>
+            </div>
+
+            <div class="row" style = "margin-top: 3%">
+                <div class = "offset-2"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="calves">
+                    <p class = "buttontext">
+                        Calves
+                    </p>
+                </button>
+
+                <div class = "offset-2"></div>
+
+                <button class="col" name = "bodypart" form="buttonForm" value="abductors">
+                    <p class = "buttontext">
+                        Abductors
+                    </p>
+                </button>
+
+                <div class = "offset-2"></div>
+             </div>
+        </div>
+
+        <br><br>
+
+
+
+
+
+
+    </body>
+
+</html>
+
+
+
+

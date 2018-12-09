@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'marinoApp/styling.css' %}">
+        <link href="{% static 'marinoApp/bootstrap-4/css/bootstrap.min.css' %}" rel="stylesheet">
+        <title> Equipment </title>
+    </head>
+
+
+    <body>
+        <h1 style="text-align: center"> All instances of {{equipment_name}}</h1>
+
+        {% for entry in all_instances_equipment %}
+            <h3 style="text-align: center"> {{entry.equipment.name}} {{forloop.counter}}</h3>
+            <p style="text-align: center">Floor: <b>{{entry.location.floor}} </b></p>
+            <p style="text-align: center">Section on floor as seen on floorplan: <b>{{entry.location.room}}</b></p>
+            <div class="row" style="text-align: center">
+                <div class="offset-1"></div>
+                <div class="col">
+                    <p> pic:</p>
+                    <img src="/static/marinoApp/alteredpics/{{entry.photo_floorplan_url}}.jpg">
+                </div>
+                <div class="col">
+                    <p> floorplan:</p>
+                    <img src="/static/marinoApp/alteredpics/{{entry.photo_floorplan_url}}.png">
+                </div>
+                <div class="offset-1"></div>
+            </div>
+            <br> <br>
+        {% endfor %}
+    </body>
+
+</html>
